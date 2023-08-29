@@ -809,5 +809,7 @@ function success(pos) {
     return etaisyysA - etaisyysB;
   });
   console.log(restaurants);
+
+  // tulosta ravintolat html dokumenttiin
 }
 navigator.geolocation.getCurrentPosition(success, error, options);
