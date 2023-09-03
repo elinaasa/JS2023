@@ -770,4 +770,26 @@ const restaurants = [
   },
 ];
 
-// your code here
+restaurants.sort((a, b) => a.name.localeCompare(b.name));
+
+const table = document.querySelector('table');
+
+restaurants.forEach(restaurant => {
+  const row = table.insertRow();
+  const nameCell = row.insertCell(0);
+  const addressCell = row.insertCell(1);
+
+  nameCell.textContent = restaurant.name;
+  addressCell.textContent = restaurant.address;
+
+  row.addEventListener('click', () => {
+    const rows = table.querySelectorAll('tr');
+    rows.forEach(row => {
+      row.classList.remove('highlight');
+    });
+
+    row.classList.add('highlight');
+
+    const modal = document.getElementById('restaurant-modal');
+  });
+});

@@ -30,3 +30,4 @@ async function fetchData(url, options) {
     alert(error.message);
   }
 })();
+get;
