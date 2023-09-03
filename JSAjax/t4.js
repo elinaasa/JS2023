@@ -22,7 +22,7 @@ async function fetchData(url, options) {
       headers: {
         "Content-Type": "application/json",
       },
-      //   body: JSON.stringify(user),
+      body: JSON.stringify(user),
     };
     const userData = await fetchData(url, options);
     console.log(userData);
