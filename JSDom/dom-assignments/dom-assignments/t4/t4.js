@@ -810,6 +810,15 @@ function success(pos) {
   });
   console.log(restaurants);
 
-  // tulosta ravintolat html dokumenttiin
+  const tableBody = document.querySelector('table tbody');
+  restaurants.forEach(restaurant => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+        <td>${restaurant.name}</td>
+        <td>${restaurant.address}</td>
+        </td>
+    `;
+    tableBody.appendChild(row);
+  });
 }
 navigator.geolocation.getCurrentPosition(success, error, options);
