@@ -1,4 +1,7 @@
 'use strict';
+
+import {restaurantRow} from './components.js';
+
 const modal = document.querySelector('dialog');
 modal.addEventListener('click', function () {
   modal.close();
@@ -47,14 +50,7 @@ async function success(pos) {
     });
 
     for (const restaurant of restaurants) {
-      const tr = document.createElement('tr');
-      const name = document.createElement('td');
-      name.innerText = restaurant.name;
-      const address = document.createElement('td');
-      address.innerText = restaurant.address;
-      tr.appendChild(name);
-      tr.appendChild(address);
-      document.querySelector('table').appendChild(tr);
+      const tr = restaurantRow(restaurant);
       tr.addEventListener('click', async function () {
         try {
           // remove all highlights
