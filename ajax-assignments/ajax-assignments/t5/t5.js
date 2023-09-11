@@ -53,21 +53,17 @@ async function success(pos) {
       const tr = restaurantRow(restaurant);
       tr.addEventListener('click', async function () {
         try {
-          // remove all highlights
           const allHighs = document.querySelectorAll('.highlight');
           for (const high of allHighs) {
             high.classList.remove('highlight');
           }
-          // add highlight
           tr.classList.add('highlight');
-          // add restaurant data to modal
           modal.innerHTML = '';
           const html = `<h3>${restaurant.name}</h3>
       <p>${restaurant.company}</p>
       <p>${restaurant.address} ${restaurant.postalCode} ${restaurant.city}</p>
       <p>${restaurant.phone}</p>`;
           modal.insertAdjacentHTML('beforeend', html);
-          // fetch menu
           const menu = await fetchData(
             apiUrl + `/restaurants/daily/${restaurant._id}/fi`
           );
