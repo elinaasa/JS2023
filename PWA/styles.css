@@ -1,5 +1,6 @@
 body {
-  font-family: sans-serif;
+  font-family: "DM Serif Display", serif;
+  font-family: "Playfair Display", serif;
 }
 
 /* Make content area fill the entire browser window */
@@ -12,12 +13,25 @@ html,
   width: 100%;
 }
 
+html {
+  background: url(images/appelsiini.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 /* Center the content in the browser window */
 .container {
   margin: auto;
   text-align: center;
+  background-color: rgb(250, 235, 215, 0.8);
+  width: 80%;
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 4rem;
+}
+p {
+  font-size: 1.5rem;
 }
