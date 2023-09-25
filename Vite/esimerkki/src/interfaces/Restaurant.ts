@@ -11,8 +11,6 @@ interface Restaurant {
     postalCode: string;
     phone: string;
     companyId: number;
-
-
 }
 
 export type {Restaurant};
