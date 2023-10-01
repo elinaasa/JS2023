@@ -23,7 +23,6 @@ while (true) {
   const itemPriceInput: string | null = prompt("Enter the item price");
   const itemQuantityInput: string | null = prompt("Enter the item quantity");
 
-  // Convert input to numbers, defaulting to 0 if the input is null or cannot be parsed
   const itemPrice: number = itemPriceInput ? parseFloat(itemPriceInput) : 0;
   const itemQuantity: number = itemQuantityInput
     ? parseInt(itemQuantityInput)

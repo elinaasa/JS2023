@@ -1,5 +1,13 @@
 interface Restaurant {
     name: string;
-}
-
-export {Restaurant};
+    address: string;
+    postalCode: number;
+    city: string;
+    phone: string;
+    company: string;
+    location: {
+      type: string;
+      coordinates: number[];
+    };
+  }
+  export { Restaurant };
