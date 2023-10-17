@@ -1,7 +1,8 @@
 import {errorModal, restaurantModal, restaurantRow} from './components';
 import {fetchData} from './functions';
 import {Restaurant} from './interfaces/Restaurant';
-import {Points} from './interfaces/Point';
+import {apiUrl, positionOptions} from './variables';
+import './main.css';
 import {Menu} from './interfaces/Menu';
 
 const modal = document.querySelector('dialog');
@@ -12,15 +13,16 @@ modal.addEventListener('click', () => {
   modal.close();
 });
 
-const calculateDistance = (x1:Points, y1:Points, x2: Points, y2: Points) =>
+const calculateDistance = (x1: number, y1: number, x2: number, y2: number) =>
   Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 
-  const createTable = (restaurants: Restaurant[]): void => {
-    const table = document.querySelector('table');
-    if (!table) {
-      return;
-    }
-  restaurants.forEach((restaurant: Restaurant) => {
+const createTable = (restaurants: Restaurant[]) => {
+  const table = document.querySelector('table');
+  if (!table) {
+    throw new Error('Table not found');
+  }
+  table.innerHTML = '';
+  restaurants.forEach((restaurant) => {
     const tr = restaurantRow(restaurant);
     table.appendChild(tr);
     tr.addEventListener('click', async () => {
@@ -79,9 +81,12 @@ const success = async (pos: GeolocationPosition) => {
     const compassBtn = document.querySelector('#compass');
     const resetBtn = document.querySelector('#reset');
 
+    if (!sodexoBtn || !compassBtn || !resetBtn) {
+      throw new Error('Button not found');
+    }
     sodexoBtn.addEventListener('click', () => {
       const sodexoRestaurants = restaurants.filter(
-        (restaurant: Restaurant) => restaurant.company === 'Sodexo'
+        (restaurant) => restaurant.company === 'Sodexo'
       );
       console.log(sodexoRestaurants);
       createTable(sodexoRestaurants);
@@ -89,7 +94,7 @@ const success = async (pos: GeolocationPosition) => {
 
     compassBtn.addEventListener('click', () => {
       const compassRestaurants = restaurants.filter(
-        (restaurant: Restaurant) => restaurant.company === 'Compass Group'
+        (restaurant) => restaurant.company === 'Compass Group'
       );
       console.log(compassRestaurants);
       createTable(compassRestaurants);

@@ -1,9 +1,11 @@
 interface Menu {
-    courses: {
-      name: string;
-      diets: string[];
-      price: number;
-    }[];
-  }
+  courses: Course[],
+}
 
-  export { Menu };
+interface Course {
+  price: string;
+  name: string;
+  diets: string[];
+}
+
+export type {Menu}

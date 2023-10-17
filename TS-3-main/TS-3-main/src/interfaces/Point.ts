@@ -4,3 +4,4 @@ interface Points{
     x2: number,
     y2: number
 }
+export type {Points};
