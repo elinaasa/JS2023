@@ -2,7 +2,6 @@ import {errorModal, restaurantModal, restaurantRow} from './components';
 import {fetchData} from './functions';
 import {Restaurant} from './interfaces/Restaurant';
 import {apiUrl, positionOptions} from './variables';
-import './main.css';
 import {Menu} from './interfaces/Menu';
 
 const modal = document.querySelector('dialog');

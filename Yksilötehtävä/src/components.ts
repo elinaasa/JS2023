@@ -1,6 +1,6 @@
 import {Menu} from './interfaces/Menu';
 import {Restaurant} from './interfaces/Restaurant';
-import {Course} from './interfaces/course';
+import {Course} from './interfaces/Course';
 
 
 const restaurantRow = (restaurant: Restaurant) => {

@@ -1,7 +1,7 @@
 interface Course {
     name: string;
     diets: string[];
-    price: number;
+    price: string;
   }
 
   export { Course };
