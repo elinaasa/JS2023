@@ -10,12 +10,26 @@
 </head>
 
 <body>
-  <h1>Restaurants</h1>
+  <nav>
+    <h1>Restaurants</h1>
+    <div class="darkmode">
+      <h3>Light/Dark</h3>
+      <div>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
+  </nav>
+  </div>
   <h2>Filter restaurants</h2>
   <div id="napit">
     <button id="sodexo">Sodexo</button>
     <button id="compass">Compass Group</button>
     <button id="reset">Show all</button>
+    <button id="toggleMenus">Toggle Menus</button>
   </div>
   <table>
     <tr>

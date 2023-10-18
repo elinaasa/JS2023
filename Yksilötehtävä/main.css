@@ -1,8 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+:root{
+  --cadet-gray: #85A4A7ff;
+--linen: #F0E8E0ff;
+--redwood: #AF5043ff;
+--dark-slate-gray: #2E4741ff;
+--brown-sugar: #B77855ff;
+--burnt-sienna: #D88269ff;
+}
+
+
+* {box-sizing: border-box;}
+
 body {
-  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--linen);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background 0.2s linear;
+}
+
+body.dark {background-color: var(--dark-slate-gray)} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: var(--linen)}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: var(--linen);
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+body {
+  background-color: var(--linen);
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+}
+
+nav {
+  width: 100%;
+  background-color: var(--dark-slate-gray);
+  color: var(--linen);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
 }
 
 table {
@@ -13,7 +91,7 @@ table {
 }
 
 th {
-  background-color: #f0f0f0;
+  background-color: var(--linen);
   border-bottom: 1px solid #ccc;
   font-weight: normal;
   padding: 0.5em 1em;
@@ -27,5 +105,5 @@ td {
 
 .highlight {
   font-weight: bold;
-  background-color: rgb(194, 194, 235);
+  background-color: var(--burnt-sienna);
 }
