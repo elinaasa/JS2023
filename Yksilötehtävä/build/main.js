@@ -40,6 +40,34 @@ const restaurantModal = (restaurant, menu) => {
     html += '</table>';
     return html;
 };
+const restaurantModalWeekly = (restaurant, menu) => {
+    const { name, address, city, postalCode, phone, company } = restaurant;
+    let html = `<h3>${name}</h3>
+    <p>${company}</p>
+    <p>${address} ${postalCode} ${city}</p>
+    <p>${phone}</p>
+    <table>
+      <tr>
+        <th>Course</th>
+        <th>Diet</th>
+        <th>Price</th>
+      </tr>
+    `;
+    for (const day of menu.days) {
+        day.courses.forEach((course) => {
+            const { name, diets, price } = course;
+            html += `
+              <tr>
+                <td>${name}</td>
+                <td>${diets ?? ' - '}</td>
+                <td>${price ?? ' - '}</td>
+              </tr>
+              `;
+        });
+        html += '</table>';
+    }
+    return html;
+};
 const errorModal = (message) => {
     const html = `
         <h3>Error</h3>
@@ -112,8 +140,14 @@ const createTable = (restaurants) => {
                 // Fetch menu based on the currentToggleOption
                 const menu = await fetchData(apiUrl + `/restaurants/${currentToggleOption}/${selectedRestaurant._id}/fi`);
                 console.log(currentToggleOption);
+                let menuHtml = '';
                 // Generate HTML for restaurant modal
-                const menuHtml = menu && menu.courses ? restaurantModal(selectedRestaurant, menu) : 'Menu not available';
+                if (currentToggleOption === 'daily') {
+                    menuHtml = menu && menu.courses ? restaurantModal(selectedRestaurant, menu) : 'Menu not available';
+                }
+                else {
+                    menuHtml = menu ? restaurantModalWeekly(selectedRestaurant, menu) : 'Menu not available';
+                }
                 modal.insertAdjacentHTML('beforeend', menuHtml);
                 // Display modal
                 modal.showModal();

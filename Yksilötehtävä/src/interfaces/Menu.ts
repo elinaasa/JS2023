@@ -9,3 +9,11 @@ interface Course {
 }
 
 export type {Menu}
+
+
+interface MenuWeekly {
+  days: Array<{ courses: Course[], day: string }>
+}
+
+
+export type {MenuWeekly}

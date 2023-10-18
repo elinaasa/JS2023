@@ -3,8 +3,9 @@ import { errorModal, restaurantModal, restaurantRow } from './components';
 import { fetchData } from './functions';
 import { Restaurant } from './interfaces/Restaurant';
 import { apiUrl, positionOptions } from './variables';
-import { Menu } from './interfaces/Menu';
+import { Menu, MenuWeekly } from './interfaces/Menu';
 import { ToggleOption } from './interfaces/ToggleOption'; // New import for ToggleOption
+import { restaurantModalWeekly } from './components'; // New import for restaurantModalWeekly
 
 const checkbox = document.getElementById("checkbox");
 if (checkbox) {
@@ -66,9 +67,13 @@ const createTable = (restaurants: Restaurant[]) => {
           apiUrl + `/restaurants/${currentToggleOption}/${selectedRestaurant._id}/fi`
         );
         console.log(currentToggleOption);
-
+          let menuHtml = '';
         // Generate HTML for restaurant modal
-        const menuHtml = menu && menu.courses ? restaurantModal(selectedRestaurant, menu) : 'Menu not available';
+        if (currentToggleOption === 'daily') {
+           menuHtml = menu && menu.courses ? restaurantModal(selectedRestaurant, menu) : 'Menu not available';
+        } else {
+           menuHtml = menu ? restaurantModalWeekly(selectedRestaurant, menu as unknown as MenuWeekly) : 'Menu not available';
+        }
         modal.insertAdjacentHTML('beforeend', menuHtml);
 
         // Display modal

@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 
 :root{
-  --cadet-gray: #85A4A7ff;
+--cadet-gray: #85A4A7ff;
 --linen: #F0E8E0ff;
 --redwood: #AF5043ff;
 --dark-slate-gray: #2E4741ff;
@@ -13,21 +13,23 @@
 * {box-sizing: border-box;}
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Gabarito', sans-serif;
   background-color: var(--linen);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
   min-height: 100vh;
-  margin: 0;
   transition: background 0.2s linear;
+  background-color: var(--linen);
+  margin: 0;
+  padding: 0;
+  margin-top: 7rem;
 }
 
-body.dark {background-color: var(--dark-slate-gray)} /* #9b59b6 */
+body.dark {background-color: var(--dark-slate-gray)}
 
-body.dark h1, body.dark .support a {color: var(--linen)}
+body.dark h1 h2, body.dark .support a body.dark th{color: var(--linen)}
 
 .checkbox {
   opacity: 0;
@@ -66,16 +68,13 @@ body.dark h1, body.dark .support a {color: var(--linen)}
   transform: translateX(24px);
 }
 
-body {
-  background-color: var(--linen);
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  margin: 0;
   width: 100%;
-  background-color: var(--dark-slate-gray);
+  background-color: var(--burnt-sienna);
   color: var(--linen);
   display: flex;
   justify-content: space-between;
